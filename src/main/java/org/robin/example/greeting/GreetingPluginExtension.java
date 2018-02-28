@@ -1,12 +1,10 @@
-package org.example.greeting;
+package org.robin.example.greeting;
 
 import org.gradle.api.Project;
 
 import java.lang.String;
 
 import org.gradle.internal.reflect.Instantiator;
-
-import javax.inject.Inject;
 
 import org.gradle.api.Action;
 

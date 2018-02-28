@@ -1,4 +1,4 @@
-package org.example.greeting;
+package org.robin.example.greeting;
 
 /**
  * Created by robin on 2/27/18.

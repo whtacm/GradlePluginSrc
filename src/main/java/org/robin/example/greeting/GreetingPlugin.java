@@ -1,4 +1,4 @@
-package org.example.greeting;
+package org.robin.example.greeting;
 
 import org.gradle.api.NamedDomainObjectContainer;
 import org.gradle.api.Plugin;
