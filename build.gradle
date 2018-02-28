@@ -1,29 +1,33 @@
-apply plugin: "com.gradle.plugin-publish"   //这个是发布到插件门户网站的插件
+//apply plugin: "com.gradle.plugin-publish"   //这个是发布到插件门户网站的插件
+//
+//dependencies {
+//    compile gradleApi()
+//    compile localGroovy()  //这个groovy是gradle自带，跟随gradle的版本进行变动
+//}
+//
+//buildscript {
+//    repositories {
+//        maven {
+//            url "https://plugins.gradle.org/m2/"
+//        }
+//    }
+//    dependencies {
+//        classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
+//    }
+//}
+//
+//repositories {
+//    mavenCentral()
+//    jcenter()
+//}
 
-dependencies {
-    compile gradleApi()
-    compile localGroovy()  //这个groovy是gradle自带，跟随gradle的版本进行变动
-}
-
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
-    }
-}
-
-repositories {
-    mavenCentral()
-    jcenter()
+plugins {
+    id "com.gradle.plugin-publish" version "0.9.10"
 }
 
 
 group = 'org.robin.example.greeting'
-version = '1.0'
+//version = '1.0'
 
 pluginBundle {
 
@@ -37,8 +41,13 @@ pluginBundle {
         greetingsPlugin {
             id = 'org.robin.example.greeting'  //插件的id，到时候apply的插件id
             displayName = 'GreetingPlugin'
-            version = '1.0'
+            version = '1.0.1'
 
         }
     }
+}
+
+
+dependencies {
+    compileOnly gradleApi()
 }
