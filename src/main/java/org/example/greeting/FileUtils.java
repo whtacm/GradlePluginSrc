@@ -10,11 +10,11 @@ public final class FileUtils {
 
     public static void delFolder(String folderPath) {
         try {
-            delAllFile(folderPath); //删除完里面所有内容
+            delAllFile(folderPath);
             String filePath = folderPath;
             filePath = filePath.toString();
             java.io.File myFilePath = new java.io.File(filePath);
-            myFilePath.delete(); //删除空文件夹
+            myFilePath.delete();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -41,8 +41,8 @@ public final class FileUtils {
                 temp.delete();
             }
             if (temp.isDirectory()) {
-                delAllFile(path + "/" + tempList[i]);//先删除文件夹里面的文件
-                delFolder(path + "/" + tempList[i]);//再删除空文件夹
+                delAllFile(path + "/" + tempList[i]);
+                delFolder(path + "/" + tempList[i]);
                 flag = true;
             }
         }

@@ -1,10 +1,44 @@
-plugins {
-    id 'java'
+apply plugin: "com.gradle.plugin-publish"   //这个是发布到插件门户网站的插件
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()  //这个groovy是gradle自带，跟随gradle的版本进行变动
 }
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.gradle.publish:plugin-publish-plugin:0.9.7"
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
 
 group = 'org.example.greeting'
 version = '1.0'
 
-dependencies {
-    compileOnly gradleApi()
+pluginBundle {
+
+    website = 'whtacm.cc'
+    vcsUrl = 'https://github.com/whtacm/GradlePluginSrc'
+
+    description = 'A simple Gradle Plugin development example'  //插件描述
+    tags = ['plugin', 'demo']  //插件的tag。可以通过这个在插件门户上搜索
+
+    plugins {
+        greetingsPlugin {
+            id = 'org.example.greeting'  //插件的id，到时候apply的插件id
+            displayName = 'GreetingPlugin'
+            version = '1.0'
+
+        }
+    }
 }
